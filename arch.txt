@@ -1,0 +1,45 @@
+backend/
+│
+├── src/
+│   │
+│   ├── config/
+│   │   ├── db.js
+│   │   ├── env.js
+│   │   └── mail.js
+│   │
+│   ├── models/
+│   │   ├── User.js
+│   │   └── Otp.js
+│   │
+│   ├── routes/
+│   │   ├── auth.routes.js
+│   │   └── user.routes.js
+│   │
+│   ├── controllers/
+│   │   ├── auth.controller.js
+│   │   └── user.controller.js
+│   │
+│   ├── services/
+│   │   ├── otp.service.js
+│   │   ├── token.service.js
+│   │   └── password.service.js
+│   │
+│   ├── middlewares/
+│   │   ├── auth.middleware.js
+│   │   ├── error.middleware.js
+│   │   └── validate.middleware.js
+│   │
+│   ├── utils/
+│   │   ├── sendEmail.js
+│   │   ├── cookieOptions.js
+│   │   └── response.js
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
+
+mongodb password:5r8KOxQ7WrVUX7GW
