@@ -1,33 +1,40 @@
 import express from "express";
 import connectDB from "./config/db.js";
-import cors from 'cors';
-import 'dotenv/config';
-import userRouter from "./routes/userRoute.js";
+import cors from "cors";
+import dotenv from "dotenv";
+import httpLogger from "./middlewares/httpLogger.js";
+import { errorLogger } from "./middlewares/errorLogger.js";
+import userRoute from "./routes/userRoute.js";
+import errorHandler from "./middlewares/error.js";
 
+dotenv.config();
 
+const app = express();
+const port = process.env.PORT || 6001;
 
-const app=express();
+// Connect database
+connectDB();
 
-const port=6001;
-
-connectDB()
-
-
-app.use(express(json));
+// Middleware (request)
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/user/",userRouter);
+app.use(httpLogger); // before routes
 
-
-
-
-
-app.get('/',(req,res)=>{
-    res.status(200).send("The site is working finely");
-
+// Routes
+app.get("/", (req, res) => {
+  res.status(200).send("The site is working finely");
 });
 
+app.use("/api/user", userRoute);
 
-app.listen(port,()=>{
-    console.log(`Listening on ${port}`);
+
+
+// Middleware (error) ALWAYS KEEP AT LAST
+app.use(errorHandler);
+
+// Start server
+app.listen(port, () => {
+  console.log(`Listening on ${port}`);
 });

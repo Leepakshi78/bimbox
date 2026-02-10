@@ -4,42 +4,120 @@ backend/
 │   │
 │   ├── config/
 │   │   ├── db.js
-│   │   ├── env.js
-│   │   └── mail.js
+│   │   └── redis.config.js
 │   │
 │   ├── models/
-│   │   ├── User.js
-│   │   └── Otp.js
+│   │   ├── userModel.js
+│   │   └── 
 │   │
 │   ├── routes/
-│   │   ├── auth.routes.js
-│   │   └── user.routes.js
+│   │   ├
+│   │   └── userRoutes.js
 │   │
 │   ├── controllers/
-│   │   ├── auth.controller.js
-│   │   └── user.controller.js
+│   │   ├
+│   │   └── userController.js
 │   │
-│   ├── services/
-│   │   ├── otp.service.js
-│   │   ├── token.service.js
-│   │   └── password.service.js
+│   ├
+│   │   
+│   │  
+│   │
 │   │
 │   ├── middlewares/
-│   │   ├── auth.middleware.js
-│   │   ├── error.middleware.js
-│   │   └── validate.middleware.js
+│   │   ├── authUser.js
+│   │   ├── error.js
+│   │   └── services.js
 │   │
 │   ├── utils/
-│   │   ├── sendEmail.js
-│   │   ├── cookieOptions.js
-│   │   └── response.js
+│   │   ├── logger.js
+│   │   ├── mailer.js
+│   │   └── 
 │   │
 │   ├── app.js
 │   └── server.js
 │
 ├── .env
-├── .gitignore
+├── .gitignore //.gitignore file is a plain text file placed in a Git 
+                  repository that tells Git which files or directories to ignore and not track.
 ├── package.json
 └── README.md
 
+
+
+Request →
+  httpLogger (logs request)
+    →
+  route/controller/service
+    →
+  throw AppError or Error
+    →
+  errorLogger (logs error)
+    →
+  errorHandler (sends response)
+
+
+
+
+await:The operation is asynchronous, allowing the program to
+ handle other tasks while the salt is being generated.
+
+ async:
 mongodb password:5r8KOxQ7WrVUX7GW
+
+password for otp generator:ffgm wbxb gdhw rszb
+
+
+
+User logs in → 
+backend verifies credentials → 
+bcrypt checks password → 
+JWT token is generated →
+token is sent to frontend → 
+frontend sends token in headers for protected APIs →
+middleware verifies JWT and allows access.
+
+
+
+When a user registers, the backend first validates the email and password,
+ hashes the password for security, and creates the user with a verification 
+ status set to false. It then generates a one-time password (OTP) 
+ with a short expiry time and sends it to the user’s email. 
+ The user must enter this OTP to verify their email, 
+ after which the backend marks the account as verified 
+ and removes the OTP. Only verified users are allowed to log in.
+ During login, the backend checks the credentials and issues a JWT token,
+ which the frontend uses to access protected routes.
+
+If a user forgets their password, 
+the backend again generates an OTP and emails
+it to the user for identity confirmation. Once the OTP is verified,
+the user is allowed to set a new password, which is hashed and saved 
+securely in the database. This ensures that email ownership is
+confirmed both during registration and password recovery,
+while JWT handles secure login sessions afterward.
+
+
+ 200 OK, 201 Created, and 204 No Content
+ 400 Bad Request, 401 Unauthorized, 403 Forbidden, and 404 Not Found 
+ 500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable, and 504 Gateway Timeout 
+
+
+ We use Pino instead of Winston because Pino is faster, lightweight, and produces
+  structured logs by default, making it better for high-performance Node.js applications.
+   Winston is more flexible but heavier and slower for large-scale logging.
+
+
+utils/logger.js: creates one common logger (Pino). This is the main character that prints structured logs to terminal.
+
+
+middlewares/httpLogger.js: logs every request automatically (method, URL, status code). So you can track which API was hit and what response status it gave.
+
+middlewares/errorLogger.js: logs every error (message + stack + route info). This helps you debug without relying only on the client response.
+
+middlewares/error.js (global error handler): sends a clean JSON response to the client when any error happens, so your app doesn’t crash and responses stay consistent.
+
+Services/Controllers can also log important events (example: “OTP sent”) using the same logger.
+
+
+Server side Rendering::Server-side rendering means the server sends pre-built HTML to the browser for faster load 
+and better SEO instead of rendering everything with JavaScript.”
