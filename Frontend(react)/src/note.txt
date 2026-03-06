@@ -1,0 +1,12 @@
+User logs in
+↓
+Backend returns token
+↓
+You store token using setToken()
+↓
+User tries to open /dashboard
+↓
+ProtectedRoute checks token
+↓
+If exists → allow
+If not → redirect

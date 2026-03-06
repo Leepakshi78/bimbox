@@ -24,7 +24,7 @@ export default errorHandler;
 //global error handling middleware functions are defined with three to 4 parameters
 //It allows to catch and handles the errors throughout the process.
 
-
+//job opening 
 //jobs@talensiyaconsulting.com
 //preethi.g@amplelogic.com
 //sahil.rathod@eternityllp.com

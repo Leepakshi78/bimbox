@@ -121,3 +121,170 @@ Services/Controllers can also log important events (example: “OTP sent”) usi
 
 Server side Rendering::Server-side rendering means the server sends pre-built HTML to the browser for faster load 
 and better SEO instead of rendering everything with JavaScript.”
+
+
+
+
+new update 
+Part 3: User Status Management
+
+Objective:
+
+Allow Admin to control whether a user can access the system.
+
+Requirements:
+
+Add a status field to user (Active, Suspended, Deactivated).
+
+Allow Admin to change user status.
+
+Prevent Suspended or Deactivated users from logging in.
+
+Show proper message when login is blocked (e.g., “Account suspended. Contact admin.”).
+
+Store suspension reason.
+
+
+Technical Considerations:
+
+Check user status during login process.
+
+Also verify status in auth middleware for protected routes.
+
+Ensure status updates are saved in database.
+
+Write basic tests for login restriction based on status.
+
+Part 4: Maintenance Mode Access Control
+
+Objective:
+
+Allow the system to restrict access during maintenance or system updates.
+
+Requirements:
+
+Implement a global “maintenance mode” flag.
+
+When enabled, block access for all Users.
+
+Allow only Admin to access the system during maintenance.
+
+Return a clear message (e.g., “System under maintenance. Please try later.”).
+
+Allow Admin to toggle maintenance mode securely.
+
+
+Technical Considerations:
+
+Store maintenance flag in database or secure config.
+
+Check maintenance status in global middleware.
+
+Prevent unauthorized users from toggling maintenance mode.
+
+Write tests for access behavior during maintenance mode.
+
+
+
+
+Part 5: Real-Time User Presence & Live Status Tracking (Socket Layer)
+
+
+Objective:
+
+Track which users are online, offline, idle, or in a restricted state — in real time.
+
+
+Requirements:
+
+Presence states
+
+Online
+
+Offline
+
+Idle (no activity for X mins)
+
+Suspended (real-time forced disconnect)
+
+In-call / Busy
+
+Real-time updates
+
+
+UI badge: green/gray/yellow/“Suspended/User Removed”
+
+
+Admin Controls:
+
+Admin can view live presence map
+
+Admin can force-disconnect any user from socket
+
+Disconnect Suspended/Deactivated Users
+
+If their status changes → socket server immediately emits “forceLogout”
+
+Client should auto redirect to login
+
+
+Technical Considerations:
+
+Store presence in Redis (socketId → userId)
+
+Heartbeat pings to detect idle state
+
+Middleware: authenticate JWT in handshake
+
+Emit “presence_update” events globally or to specific rooms
+
+
+Part 6: Notification System for User Status Changes
+
+Objective:
+
+Improve UX by informing users & admins about system events.
+
+
+Requirements:
+
+Notify user via email/SMS when:
+
+Account suspended
+
+Account deactivated
+
+Account reactivated
+
+Notify admins when:
+
+Maintenance mode enabled
+
+Maintenance mode disabled
+
+
+Notification templates: 
+
+Queue-based sending (BullMQ / Redis)
+
+
+
+
+
+
+Socket = persistent two-way connection
+Socket.IO = easy library to use sockets
+socket.id = unique connection identifier
+Multiple tabs = multiple sockets
+Disconnect = socket closes
+Heartbeat = activity signal
+
+
+
+overrall workflow after implementing socket 
+
+user logs in -->backend generates jwt token-->frontend stores token-->
+create(Socket(token))-->io(url ,auth token)
+--->handshake request sent -->auth middleware -->
+token=socket.handshake.auth.token--->jwt verified --->socket user created --->redis will map socket id with user id -->now for every user private rooms are created 
+-->for admin special admins room created --->socket logic implementation

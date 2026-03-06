@@ -1,5 +1,5 @@
 //this catches unknown routes instead of Express crashing.
-import AppError from "../utils/AppError.js";
+import AppError from "../utils/appError.js";
 
 const notFound = (req, res, next) => {
   next(new AppError(`Route not found: ${req.originalUrl}`, 404));

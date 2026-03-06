@@ -11,3 +11,15 @@ export const errorLogger = (err, req, res, next) => {
   });
   next(err); // IMPORTANT: pass error to errorHandler
 };
+
+
+
+// Stack trace can expose:
+
+// File names
+
+// Folder structure
+
+// Logic flow
+
+// Tech stack

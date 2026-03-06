@@ -1,0 +1,208 @@
+.auth-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background: radial-gradient(circle at top left, #2b2d55, #0b0c1a 55%, #2a1440);
+    padding: 20px;
+}
+
+.auth-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15));
+}
+
+.auth-card {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    background: rgba(20, 20, 30, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 22px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+.auth-header h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 26px;
+    letter-spacing: 0.3px;
+}
+
+.auth-header p {
+    margin: 6px 0 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.auth-form {
+    margin-top: 18px;
+    display: grid;
+    gap: 14px;
+}
+
+.auth-label {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    display: grid;
+    gap: 8px;
+}
+
+.auth-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(10, 10, 18, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 10px 12px;
+    transition: border 0.2s ease, transform 0.2s ease;
+}
+
+.auth-input-wrap:focus-within {
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateY(-1px);
+}
+
+.auth-icon {
+    opacity: 0.65;
+    font-size: 14px;
+    min-width: 14px;
+    text-align: center;
+    user-select: none;
+}
+
+.auth-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.auth-input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.auth-icon-btn {
+    border: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    font-size: 12px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    transition: background 0.15s ease;
+}
+
+.auth-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.auth-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 2px;
+}
+
+.auth-check {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.auth-link {
+    color: rgba(180, 190, 255, 0.95);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+.auth-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-weight: 600;
+    color: #0b0c1a;
+    background: linear-gradient(90deg, #b9c2ff, #ffb7f0);
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.auth-btn:hover {
+    transform: translateY(-1px);
+}
+
+.auth-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.auth-footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.auth-alert {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.auth-alert--danger {
+    background: rgba(255, 70, 70, 0.16);
+    border: 1px solid rgba(255, 70, 70, 0.25);
+    color: rgba(255, 220, 220, 0.95);
+}
+
+.auth-alert--success {
+    background: rgba(80, 255, 160, 0.12);
+    border: 1px solid rgba(80, 255, 160, 0.22);
+    color: rgba(220, 255, 235, 0.95);
+}
+
+.auth-mini {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.auth-mini__text {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+}
+
+.auth-mini__btn {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 8px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.auth-mini__btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

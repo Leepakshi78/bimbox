@@ -1,0 +1,257 @@
+/* src/components/adminPanel.css */
+
+.adminWrap {
+    min-height: 100vh;
+    padding: 32px 16px;
+    background: radial-gradient(1200px 600px at 20% 10%, #2b1b5a 0%, transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, #5a1b4c 0%, transparent 55%),
+        #0b0f1a;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.adminCard {
+    width: min(1100px, 100%);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    color: #e9ecff;
+}
+
+.adminHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.adminTitle {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.adminSubtitle {
+    margin: 6px 0 0 0;
+    opacity: 0.8;
+    font-size: 13px;
+}
+
+.section {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sectionHead {
+    margin-bottom: 12px;
+}
+
+.sectionTitle {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.sectionHint {
+    margin: 6px 0 0 0;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.alert {
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin: 12px 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.alert--danger {
+    background: rgba(255, 60, 90, 0.14);
+    border-color: rgba(255, 60, 90, 0.28);
+}
+
+.loadingBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 26px 10px;
+    opacity: 0.9;
+}
+
+.spinner {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    border-top-color: rgba(255, 255, 255, 0.85);
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.maintenanceRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.maintenanceState {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.maintenanceText {
+    opacity: 0.85;
+    font-size: 13px;
+}
+
+.tableWrap {
+    margin-top: 12px;
+    overflow: auto;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.table thead th {
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    opacity: 0.9;
+    padding: 12px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.table tbody td {
+    padding: 12px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.emptyCell {
+    text-align: center;
+    padding: 18px 12px !important;
+    opacity: 0.8;
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    font-size: 13px;
+}
+
+.actionsRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.select {
+    padding: 9px 10px;
+    border-radius: 10px;
+    background: rgba(10, 14, 26, 0.65);
+    color: #e9ecff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    outline: none;
+}
+
+.select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.06);
+    color: #e9ecff;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn--primary {
+    border: none;
+    background: linear-gradient(90deg, #a8b3ff, #ffb5f0);
+    color: #14162a;
+}
+
+.btn--ghost {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.badge--green {
+    background: rgba(46, 204, 113, 0.16);
+    border-color: rgba(46, 204, 113, 0.28);
+}
+
+.badge--yellow {
+    background: rgba(241, 196, 15, 0.16);
+    border-color: rgba(241, 196, 15, 0.28);
+}
+
+.badge--red {
+    background: rgba(255, 60, 90, 0.16);
+    border-color: rgba(255, 60, 90, 0.28);
+}
+
+.badge--blue {
+    background: rgba(52, 152, 219, 0.16);
+    border-color: rgba(52, 152, 219, 0.28);
+}
+
+.badge--purple {
+    background: rgba(155, 89, 182, 0.16);
+    border-color: rgba(155, 89, 182, 0.28);
+}
+
+.miniHint {
+    padding: 10px 12px;
+    font-size: 12px;
+    opacity: 0.85;
+}

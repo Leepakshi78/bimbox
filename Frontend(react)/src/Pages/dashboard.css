@@ -1,0 +1,266 @@
+/* Page background */
+.page {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #0b1530, #070b16 60%);
+    color: #e8eefc;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Topbar */
+.topbar {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(7, 11, 22, 0.55);
+    backdrop-filter: blur(10px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand__dot {
+    width: 12px;
+    height: 12px;
+    background: #7aa8ff;
+    border-radius: 999px;
+    box-shadow: 0 0 16px rgba(122, 168, 255, 0.7);
+}
+
+.brand__title {
+    font-size: 20px;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* Layout container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 18px 60px;
+}
+
+/* Hero card */
+.heroCard {
+    margin-top: 26px;
+    padding: 28px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(11, 21, 48, 0.35);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.heroCard__title {
+    font-size: 34px;
+    margin: 0 0 6px;
+}
+
+.heroCard__subtitle {
+    margin: 0 0 22px;
+    opacity: 0.8;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin: 12px 0;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.alert--warning {
+    background: rgba(255, 196, 0, 0.12);
+}
+
+.alert--danger {
+    background: rgba(255, 72, 72, 0.12);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 16px;
+}
+
+@media (max-width: 920px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card */
+.card {
+    border-radius: 18px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(7, 11, 22, 0.45);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.card__header {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.card__title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.card__hint {
+    margin: 3px 0 0;
+    opacity: 0.7;
+    font-size: 13px;
+}
+
+/* Avatar */
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    background: rgba(122, 168, 255, 0.18);
+    border: 1px solid rgba(122, 168, 255, 0.35);
+}
+
+/* Key-value list */
+.kv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kv__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.kv__key {
+    opacity: 0.75;
+    font-size: 13px;
+}
+
+.kv__val {
+    font-weight: 600;
+}
+
+/* Badges */
+.badge {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-transform: capitalize;
+}
+
+.badge--green {
+    background: rgba(0, 255, 163, 0.12);
+}
+
+.badge--yellow {
+    background: rgba(255, 196, 0, 0.12);
+}
+
+.badge--red {
+    background: rgba(255, 72, 72, 0.12);
+}
+
+.badge--purple {
+    background: rgba(166, 108, 255, 0.16);
+}
+
+.badge--blue {
+    background: rgba(108, 182, 255, 0.14);
+}
+
+/* Pills */
+.pill {
+    padding: 12px 12px;
+    border-radius: 14px;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    opacity: 0.9;
+}
+
+/* Buttons */
+.btn {
+    border: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    color: white;
+    transition: transform 0.08s ease;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn--danger {
+    background: #ff4d4d;
+}
+
+.btn--primary {
+    background: #4d7cff;
+}
+
+/* Loading */
+.loadingBox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.spinner {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    border-top-color: rgba(255, 255, 255, 0.95);
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Admin CTA */
+.adminCta {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 16px;
+    background: rgba(77, 124, 255, 0.10);
+    border: 1px solid rgba(77, 124, 255, 0.20);
+}
+
+.adminCta__text {
+    margin: 0 0 12px;
+    opacity: 0.95;
+}

@@ -7,3 +7,7 @@ class AppError extends Error {
 }
 
 export default AppError;
+
+
+// It creates custom structured errors 
+//without it every error end up looking like 500 server error 
